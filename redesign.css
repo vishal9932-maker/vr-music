@@ -1063,9 +1063,34 @@ body {
 
     .artist-grid,
     .album-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+        gap: 10px;
     }
+
+    .artist-card {
+        padding: 10px !important;
+        border-radius: 12px !important;
+    }
+
+    .artist-card img {
+        margin-bottom: 8px !important;
+    }
+
+    .artist-card h3 {
+        font-size: 0.95rem !important;
+    }
+
+    .artist-card p {
+        font-size: 0.75rem !important;
+    }
+
+    .artist-card .play-icon {
+        width: 35px !important;
+        height: 35px !important;
+        bottom: 60px !important;
+        right: 10px !important;
+    }
+
 
     .song-row {
         padding: 12px;
