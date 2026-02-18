@@ -1,11 +1,11 @@
-# Ignore common audio file formats and OS artifacts
-*.mp3
-*.wav
-*.flac
-*.ogg
-*.m4a
-*.aac
-*.aiff
+# Allow audio files to be uploaded to the repository
+# *.mp3 - Removed to allow playback on hosted site
+# *.wav - Removed to allow playback on hosted site
+# *.flac
+# *.ogg
+# *.m4a
+# *.aac
+# *.aiff
 
 # Ignore Windows and macOS metadata
 desktop.ini

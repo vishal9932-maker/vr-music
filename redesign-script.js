@@ -170,7 +170,8 @@ const artistsData = [
             { title: "Nache Nache", album: "Single", duration: "3:30", img: "thamon s/thamon s.jpeg", file: "thamon s/Nache Nache.mp3" },
             { title: "Ranjithame", album: "Varisu", duration: "4:20", img: "thamon s/thamon s.jpeg", file: "thamon s/Ranjithame-MassTamilan.dev.mp3" },
             { title: "Rebel Saab", album: "Single", duration: "3:15", img: "thamon s/thamon s.jpeg", file: "thamon s/Rebel Saab.mp3" },
-            { title: "Thee Thalapathy", album: "Varisu", duration: "4:05", img: "thamon s/thamon s.jpeg", file: "thamon s/Thee-Thalapathy-MassTamilan.dev.mp3" }
+            { title: "Thee Thalapathy", album: "Varisu", duration: "4:05", img: "thamon s/thamon s.jpeg", file: "thamon s/Thee-Thalapathy-MassTamilan.dev.mp3" },
+            { title: "Kaalai Theme", album: "Kaalai", duration: "3:15", img: "thamon s/thamon s.jpeg", file: "thamon s/Kaalai-Theme-MassTamilan.com.mp3" }
         ]
     },
     {
@@ -673,11 +674,26 @@ function playSong(songOrTitle, img, file) {
     document.querySelector('.bottom-player .song-info p').textContent = artistName;
 
     if (songFile) {
-        audioPlayer.src = songFile;
-        audioPlayer.play();
-        playPauseIcon.classList.remove('fa-play');
-        playPauseIcon.classList.add('fa-pause');
-        document.querySelector('.bottom-player').classList.add('playing');
+        // Essential for some mobile browsers to reset state
+        audioPlayer.pause();
+        audioPlayer.src = encodeURI(songFile);
+        audioPlayer.load(); // Forces reload for new source
+
+        const playPromise = audioPlayer.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+                document.querySelector('.bottom-player').classList.add('playing');
+            }).catch(error => {
+                console.error("Playback failed:", error);
+                // Fallback: If autoplay is blocked, update UI to show it's paused
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+                document.querySelector('.bottom-player').classList.remove('playing');
+            });
+        }
     } else {
         alert(`Playing ${title} (Mock Mode - No file provided)`);
         playPauseIcon.classList.remove('fa-play');
@@ -689,10 +705,14 @@ function playSong(songOrTitle, img, file) {
 window.togglePlay = function () {
     if (audioPlayer.paused) {
         if (audioPlayer.src && audioPlayer.src !== "") {
-            audioPlayer.play();
-            playPauseIcon.classList.remove('fa-play');
-            playPauseIcon.classList.add('fa-pause');
-            document.querySelector('.bottom-player').classList.add('playing');
+            const playPromise = audioPlayer.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    playPauseIcon.classList.remove('fa-play');
+                    playPauseIcon.classList.add('fa-pause');
+                    document.querySelector('.bottom-player').classList.add('playing');
+                }).catch(e => console.error("Toggle play failed", e));
+            }
         } else {
             const artist = artistsData[currentArtistIndex];
             if (artist && artist.songs.length > 0) {
@@ -829,12 +849,24 @@ function updateProfileAvatar() {
         if (profileDiv) {
             profileDiv.onclick = () => window.location.href = 'index.html';
         }
-        if (container) {
-            container.innerHTML = `<img src="login img.png" alt="User" id="user-profile-img">`;
-        }
     }
 }
 
+// Audio Error Handling
+if (audioPlayer) {
+    audioPlayer.addEventListener('error', (e) => {
+        let msg = "Unknown error";
+        if (audioPlayer.error) {
+            switch (audioPlayer.error.code) {
+                case 1: msg = "Playback aborted"; break;
+                case 2: msg = "Network error"; break;
+                case 3: msg = "Audio decode failed"; break;
+                case 4: msg = "Format not supported"; break;
+            }
+            console.error("Audio Error:", msg, audioPlayer.src);
+        }
+    });
+}
 // Check for avatar on load
 window.addEventListener('DOMContentLoaded', () => {
     showHome();
