@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Music - Immersive Sound</title>
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Image (Blurred) -->
+    <div class="background-image"></div>
+
+    <div class="app-container">
+        <!-- Sidebar (Glassy) -->
+        <aside class="sidebar glass">
+            <div class="logo">
+                <img src="mus logo.webp" alt="Logo"
+                    style="width: 45px; height: auto; border-radius: 50%; margin-right: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <span>VR Music</span>
+            </div>
+
+            <nav class="nav-links">
+                <ul>
+                    <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="#"><i class="fa-solid fa-compass"></i> Discover</a></li>
+                    <li><a href="#" id="album-song-link"><i class="fa-solid fa-compact-disc"></i> Album Song</a></li>
+                    <li><a href="#"><i class="fa-solid fa-heart"></i> Favorites</a></li>
+                </ul>
+            </nav>
+
+            <div class="now-playing-mini">
+                <img src="Anirudh-Ravichander.webp" alt="Anirudh">
+                <div class="info">
+                    <h4>Hukum</h4>
+                    <p>Anirudh Ravichander</p>
+                </div>
+                <div class="mini-controls">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content (Glassy) -->
+        <main class="main-content glass">
+            <header class="top-bar">
+                <div class="nav-arrows">
+                    <button class="circle-btn" onclick="prevArtist()"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="circle-btn" onclick="nextArtist()"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search for artist, songs...">
+                </div>
+                <div class="user-profile" id="user-profile" onclick="window.location.href='login.html'"
+                    style="cursor: pointer;">
+                    <div id="user-avatar-container">
+                        <img src="login img.png" alt="User" id="user-profile-img">
+                    </div>
+                </div>
+            </header>
+
+            <section class="home-view" id="home-view">
+                <h2>Featured Artists</h2>
+                <div class="artist-grid">
+                    <!-- Dynamic Artists -->
+                </div>
+            </section>
+
+            <div class="featured-artist">
+                <div class="artist-content">
+                    <div class="verified">
+                        <i class="fa-solid fa-circle-check"></i> Verified Artist
+                    </div>
+                    <h1>Anirudh Ravichander</h1>
+                    <p>Rockstar of South Indian Music. 35,482,192 monthly listeners.</p>
+                    <div class="buttons">
+                        <button class="play-btn">Play</button>
+                        <button class="stop-btn"
+                            style="background: rgba(255, 50, 50, 0.8); color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 700; cursor: pointer; transition: transform 0.2s;">Stop</button>
+                        <button class="follow-btn">Follow</button>
+                    </div>
+                </div>
+                <div class="artist-image">
+                    <img src="anirudh song/Anirudh-Ravichander.webp" alt="Anirudh Main">
+                </div>
+            </div>
+
+            <section class="popular-section" id="popular-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 0;">Popular</h3>
+                    <div class="playlist-search-bar"
+                        style="background: rgba(255, 255, 255, 0.1); padding: 8px 15px; border-radius: 20px; display: flex; align-items: center; gap: 10px; width: 250px;">
+                        <i class="fa-solid fa-search" style="color: var(--text-dim); font-size: 0.9rem;"></i>
+                        <input type="text" id="playlist-search-input" placeholder="Search songs..."
+                            style="background: transparent; border: none; color: white; outline: none; width: 100%; font-size: 0.9rem;">
+                    </div>
+                </div>
+                <div class="song-list">
+                    <!-- Dynamic Songs -->
+                </div>
+            </section>
+
+            <section class="favorites-section" id="favorites-section" style="display: none;">
+                <h3>Your Favorites 💚</h3>
+                <div class="favorites-list song-list">
+                    <!-- Dynamic Favorites -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="bottom-player glass" style="display: none;">
+        <div class="song-info">
+            <img src="Anirudh-Ravichander.webp" alt="Cover">
+            <div class="details">
+                <h4>Hukum</h4>
+                <p>Anirudh Ravichander</p>
+            </div>
+            <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="player-controls">
+            <div class="controls">
+                <i class="fa-solid fa-shuffle"></i>
+                <i class="fa-solid fa-backward-step" onclick="prevSong()" style="cursor: pointer;"></i>
+                <div class="play-pause-btn" onclick="togglePlay()">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <i class="fa-solid fa-forward-step" onclick="nextSong()" style="cursor: pointer;"></i>
+                <i class="fa-solid fa-repeat"></i>
+            </div>
+            <div class="progress-bar">
+                <span>0:00</span>
+                <input type="range" value="0" min="0" max="100">
+                <span>3:27</span>
+            </div>
+        </div>
+        <div class="volume-controls">
+            <i class="fa-solid fa-list"></i>
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" value="80" min="0" max="100">
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+    <script src="redesign-script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Music Redesigned</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-image"></div>
+
+    <div class="login-container glass">
+        <div class="login-header">
+            <div class="logo-wrapper">
+                <img src="mus logo.webp" alt="Music Logo" class="app-logo">
+            </div>
+            <h1>Music</h1>
+            <p>Experience the rhythm of your soul.</p>
+        </div>
+
+        <form id="login-form">
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="Gmail / Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">Log In</button>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <button type="button" class="google-btn" onclick="openGoogleLogin()">
+                <i class="fa-brands fa-google"></i> Continue with Google
+            </button>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
