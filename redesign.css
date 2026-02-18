@@ -18,8 +18,8 @@
 body {
     font-family: 'Outfit', sans-serif;
     color: var(--text-light);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     background: #000;
 }
 
@@ -38,7 +38,7 @@ body {
 
 .app-container {
     display: flex;
-    height: 100%;
+    min-height: 100%;
     padding: 20px;
     gap: 20px;
 }
