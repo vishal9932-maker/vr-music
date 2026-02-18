@@ -695,29 +695,31 @@ body {
         flex-direction: column;
         padding: 10px;
         height: auto;
-        padding-bottom: 160px;
+        padding-bottom: 200px;
         /* Space for both player and bottom nav */
     }
 
-    /* Bottom Navigation Bar Overhaul */
+    /* Bottom Navigation Bar Overhaul - App Style */
     .sidebar {
         width: 100% !important;
-        height: 75px !important;
+        height: calc(75px + env(safe-area-inset-bottom)) !important;
         flex-direction: row !important;
         justify-content: center !important;
-        padding: 0 !important;
+        padding: 0 0 env(safe-area-inset-bottom) 0 !important;
         gap: 0 !important;
         position: fixed !important;
         bottom: 0 !important;
         left: 0 !important;
         top: auto !important;
         z-index: 9999 !important;
-        border-radius: 20px 20px 0 0 !important;
+        border-radius: 24px 24px 0 0 !important;
         border: none !important;
         border-top: 1px solid var(--glass-border) !important;
-        background: rgba(0, 0, 0, 0.95) !important;
-        backdrop-filter: blur(20px) !important;
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8) !important;
+        background: rgba(0, 0, 0, 0.98) !important;
+        backdrop-filter: blur(25px) !important;
+        box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.9) !important;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .logo {
@@ -789,8 +791,10 @@ body {
     }
 
     .main-content {
-        padding: 15px;
-        gap: 20px;
+        padding: 12px;
+        gap: 15px;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .top-bar {
@@ -823,10 +827,12 @@ body {
     }
 
     .search-bar {
-        width: 100%;
+        width: 100% !important;
         order: 3;
-        padding: 10px 20px;
+        padding: 12px 20px;
         background: rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        margin-top: 5px;
     }
 
     .nav-arrows {
@@ -847,24 +853,31 @@ body {
     }
 
     .featured-artist {
-        padding: 20px;
-        min-height: 250px;
+        padding: 24px;
+        min-height: 220px;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-end;
+        justify-content: center;
+        margin-bottom: 25px;
+        border-radius: 24px;
     }
 
     .artist-content {
         max-width: 100%;
+        text-align: left;
     }
 
     .artist-content h1 {
-        font-size: 2rem;
+        font-size: clamp(1.8rem, 8vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 8px;
     }
 
     .artist-content p {
-        font-size: 0.9rem;
-        max-width: 100%;
+        font-size: 0.85rem;
+        max-width: 90%;
+        line-height: 1.4;
+        opacity: 0.9;
     }
 
     .artist-image {
@@ -908,20 +921,21 @@ body {
         font-size: 0.85rem;
     }
 
-    /* Bottom Player Overhaul for Mobile */
+    /* Island Player Style */
     .bottom-player {
-        bottom: 85px;
-        /* Sits just above the nav bar */
-        width: calc(100% - 20px);
-        left: 10px;
-        border-radius: 12px;
-        height: 65px;
-        padding: 10px;
+        bottom: calc(85px + env(safe-area-inset-bottom));
+        width: calc(100% - 30px);
+        left: 15px;
+        border-radius: 20px;
+        height: 70px;
+        padding: 10px 15px;
         display: none;
         align-items: center;
         justify-content: space-between;
-        z-index: 1500;
+        z-index: 9000;
+        background: rgba(18, 18, 18, 0.95);
         border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
     .bottom-player .song-info {
@@ -956,6 +970,12 @@ body {
     .bottom-player .volume-controls,
     .bottom-player .controls i:not(.fa-play):not(.fa-pause):not(.fa-backward-step):not(.fa-forward-step) {
         display: none;
+    }
+
+    .song-list {
+        max-height: none !important;
+        overflow: visible !important;
+        padding-bottom: 20px;
     }
 
     .artist-grid {
