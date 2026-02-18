@@ -820,14 +820,14 @@ function updateProfileAvatar() {
             profileDiv.onclick = function () {
                 if (confirm(`Logged in as ${email}. Do you want to log out?`)) {
                     localStorage.removeItem('userEmail');
-                    window.location.href = 'login.html';
+                    window.location.href = 'index.html';
                 }
             };
         }
     } else {
         // Default behavior for guest
         if (profileDiv) {
-            profileDiv.onclick = () => window.location.href = 'login.html';
+            profileDiv.onclick = () => window.location.href = 'index.html';
         }
         if (container) {
             container.innerHTML = `<img src="login img.png" alt="User" id="user-profile-img">`;
