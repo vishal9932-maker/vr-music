@@ -11,20 +11,8 @@
 desktop.ini
 .DS_Store
 
-# Ignore known music folders in this workspace
-album song/
-anirudh song/
-ar rahmon song/
-d immon/
-gv prakash/
-harris jayaraj/
-hiphop tamizha/
-illayaraja/
-sai abhyankar/
-santhosh narayanan/
-thamon s/
-vijay antony/
-yuvan song/
+# Ignore known music folders in this workspace - Removed folder ignores to allow images
+# Individual audio files are still ignored by extension above.
 
 # Node/npm artifacts (if any)
 
