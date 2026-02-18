@@ -1068,17 +1068,26 @@ body {
     }
 
     .song-row {
-        padding: 8px 5px;
+        padding: 12px 10px;
+        background: rgba(255, 255, 255, 0.05);
+        margin-bottom: 8px;
+        border-radius: 12px;
     }
 
     .song-row img {
-        width: 40px;
-        height: 40px;
-        margin: 0 10px;
+        width: 55px;
+        height: 55px;
+        margin: 0 12px 0 0;
+        border-radius: 8px;
     }
 
     .song-row .song-info h4 {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .song-row .song-info p {
+        font-size: 0.8rem;
     }
 
     .song-row .number,
