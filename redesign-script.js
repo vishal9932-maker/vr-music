@@ -49,7 +49,7 @@ const artistsData = [
             { title: "Unakaga", album: "Bigil", duration: "3:40", img: "ar rahmon song/unagaga.jpeg", file: "ar rahmon song/Unakaga-MassTamilan.io.mp3" },
             { title: "Uyir Urugudhey", album: "Cobra", duration: "4:00", img: "ar rahmon song/cobra.jpeg", file: "ar rahmon song/Uyir-Urugudhey-MassTamilan.dev.mp3" },
             { title: "Verithanam", album: "Bigil", duration: "3:30", img: "ar rahmon song/verithaman.jpeg", file: "ar rahmon song/Verithanam-MassTamilan.io.mp3" },
-            { title: "Vetri Kodi Kattu", album: "Padayappa", duration: "4:25", img: "ar rahmon song/padaiyappa.jpeg", file: "ar rahmon song/Vetri-Kodi-Kattu.mp3" }
+            { title: "Vetri Kodi Kattu", album: "Padayappa", duration: "4:25", img: "ar rahmon song/vetri kodi kattu.jpeg", file: "ar rahmon song/Vetri-Kodi-Kattu.mp3" }
         ]
     },
     {
@@ -80,7 +80,7 @@ const artistsData = [
         verified: true,
         bgGradient: "rgba(255, 200, 50, 0.2)",
         songs: [
-            { title: "Amaraan - Title Track", album: "Amaraan", duration: "3:45", img: "gv prakash/amaran.jpeg", file: "gv prakash/Amara - MassTamilan.mp3" },
+            { title: "Amaraan - Title Track", album: "Amaraan", duration: "3:45", img: "gv prakash/amaran.jpeg", file: "gv prakash/Amara.mp3" },
             { title: "Adi Alaye", album: "Parasakthi", duration: "4:20", img: "gv prakash/adi alaye.jpeg", file: "gv prakash/Adi Alaye.mp3" },
             { title: "Enjaami Thandhaane", album: "Idly Kadai", duration: "5:10", img: "gv prakash/enjaami thandhane.jpeg", file: "gv prakash/Enjaami Thandhaane.mp3" },
             { title: "Kannumuzhi", album: "Mask", duration: "4:05", img: "gv prakash/kannumuzhi.jpeg", file: "gv prakash/Kannumuzhi.mp3" },
@@ -109,9 +109,11 @@ const artistsData = [
         verified: true,
         bgGradient: "rgba(100, 255, 100, 0.2)",
         songs: [
-            { title: "Whistle Podu", album: "GOAT", duration: "4:00", img: "yuvan song/whistle podu.jpeg", file: "yuvan song/Whistle-Podu-MassTamilan.dev.mp3" },
+            { title: "Whistle Podu", album: "GOAT", duration: "4:00", img: "yuvan song/whistle podu.jpeg", file: "yuvan song/Whistle Podu.mp3" },
             { title: "Saachitale", album: "Love Today", duration: "3:58", img: "yuvan song/sachitale.jpeg", file: "yuvan song/Saachitale-MassTamilan.dev.mp3" },
             { title: "Ennai Vittu", album: "Love Today", duration: "4:02", img: "yuvan song/ennai vittu.jpeg", file: "yuvan song/Ennai-Vittu-MassTamilan.dev.mp3" },
+            { title: "Matta", album: "GOAT", duration: "3:40", img: "yuvan song/matta.webp", file: "yuvan song/Matta.mp3" },
+            { title: "Chinna Chinna Kangal", album: "GOAT", duration: "4:10", img: "yuvan song/chinna kangal.webp", file: "yuvan song/Chinna Chinna Kangal.mp3" }
         ]
     },
     {
@@ -141,7 +143,7 @@ const artistsData = [
             { title: "Thunder Kaaran", album: "Veeran", duration: "2:41", img: "hiphop tamizha/veeran.jpeg", file: "hiphop tamizha/Thunder-Kaaran-MassTamilan.dev.mp3" },
             { title: "Papara Mitta", album: "Veeran", duration: "3:06", img: "hiphop tamizha/veeran.jpeg", file: "hiphop tamizha/Papara-Mitta-MassTamilan.dev.mp3" },
             { title: "Andome Kidukidunga", album: "Single", duration: "3:10", img: "hiphop tamizha/veeran.jpeg", file: "hiphop tamizha/Andome-Kidukidunga-MassTamilan.dev.mp3" },
-            { title: "Bye Bye Bhaiya", album: "Buddy", duration: "3:30", img: "hiphop tamizha/bye bye bhaiya.jpeg", file: "hiphop tamizha/Bye Bye Bhaiya - MassTamilan(1) - Copy.mp3" }
+            { title: "Bye Bye Bhaiya", album: "Buddy", duration: "3:30", img: "hiphop tamizha/bye bye bhaiya.jpeg", file: "hiphop tamizha/Bye Bye Bhaiya.mp3" }
         ]
     },
     {
